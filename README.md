@@ -74,13 +74,13 @@ Los campos adicionales como description, humidity y wind_speed son opcionales.
 Actualiza un registro de clima existente. Debes proporcionar el ID del registro en la URL y enviar los datos actualizados en el cuerpo de la solicitud en formato JSON.
 Puedes incluir los siguientes campos en el cuerpo de la solicitud:
 
-{
-  "city": "Nuevo nombre de la ciudad",
-  "temperature": "Nueva temperatura",
-  "description": "Nueva descripción",
-  "humidity": "Nueva humedad",
-  "wind_speed": "Nueva velocidad del viento"
-}
+    {
+      "city": "Nuevo nombre de la ciudad",
+      "temperature": "Nueva temperatura",
+      "description": "Nueva descripción",
+      "humidity": "Nueva humedad",
+      "wind_speed": "Nueva velocidad del viento"
+    }
 
 DELETE /api/weather/{id}: Elimina un registro de clima existente. Debes proporcionar el ID del registro en la URL.
 
