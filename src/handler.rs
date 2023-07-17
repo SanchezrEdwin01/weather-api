@@ -48,9 +48,12 @@ async fn create_weather_handler(
 ) -> impl Responder {
     let query_result = sqlx::query_as!(
         WeatherModel,
-        "INSERT INTO weather (city,temperature) VALUES ($1, $2) RETURNING *",
+        "INSERT INTO weather (city,temperature, description, humidity, wind_speed) VALUES ($1, $2, $3, $4, $5) RETURNING *",
         body.city.to_string(),
-        body.temperature.to_string()
+        body.temperature.to_string(),
+        body.description.as_ref().map(|s| s.as_str()).unwrap_or_default(),
+        body.humidity.as_ref().map(|s| s.as_str()).unwrap_or_default(),
+        body.wind_speed.as_ref().map(|s| s.as_str()).unwrap_or_default()
     )
     .fetch_one(&data.db)
     .await;
